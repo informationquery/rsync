@@ -1,8 +1,0 @@
----
-- hosts: all
-  tasks:
-   - name: git pull
-     git:
-      repo: https://github.com/informationquery/rsync.git
-      dest: tmp/gitpull/
-      refspec: '+refs/pull/*:refs/heads/*'
