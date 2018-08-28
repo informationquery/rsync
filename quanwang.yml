@@ -1,0 +1,33 @@
+---
+- hosts: 172.16.1.61
+  tasks:
+# - name: anzhuangrsync
+# shell: /server/scripts/piliangceshimiyao.sh
+# - name: anzhuangrsync
+# shell: /server/tools/rsyncpiliang.yml
+# - name: anzhuangnfs
+# shell: /server/tools/nfspiliang.yml
+- hosts: 172.16.1.41
+  tasks: 
+- name: chuangjianmulu41
+  shell: mkdir -p /server/tools/ #创建所在配置的文件
+- name: peizhi41
+  copy: src=/server/tools/quanwangrsync.sh dest=/server/tools/quanwangrsync.sh
+- name: rsyncdajian41
+  script: /server/tools/quanwangrsync.sh
+- hosts: 172.16.1.8
+  tasks:
+- name: chuangjianmulu8
+  shell: mkdir -p /server/tools/ #创建所在配置的文件
+- name: peizhi8
+  copy: src=/server/tools/quanwangweb.sh dest=/server/tools/quanwangweb.sh
+- name: quanwangweb8
+  script: /server/tools/quanwangweb.sh
+- hosts: 172.16.1.31
+  tasks:
+- name: chuangjianmulu31
+  shell: mkdir -p /server/tools/ #创建所在配置的文件
+- name: peizhi31
+  copy: src=/server/tools/quanwangnfs.sh dest=/server/tools/quanwangnfs.sh
+- name: quanwangnfs.sh31
+  script: /server/tools/quanwangnfs.sh
