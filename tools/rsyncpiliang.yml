@@ -1,5 +1,5 @@
 ---
-- hosts: 172.16.1.41 #服务端
+- hosts: 192.168.0.242 #服务端
   tasks:
 - name: yum 
   shell: yum install -y rsync #安装rsync
@@ -29,7 +29,7 @@
   shell: mkdir -p /server/tools/
 - name: mimawenjian
   shell: echo "oldboy123" >/etc/rsync.password && chmod 600 /etc/rsync.password
-- hosts: 172.16.1.31
+- hosts: 192.168.0.152
   tasks:
 - name: yum
   shell: yum install -y rsync #客户端 
