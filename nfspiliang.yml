@@ -1,0 +1,36 @@
+---
+- hosts: 172.16.1.31 #服务端
+  tasks:
+- name: yum 
+  shell: yum install -y nfs-utils rpcbind #安装nfs
+- name: yunm
+  shell: yum -y install sshpass #安装密钥的软件
+- name: chuangjianmulu
+  shell: mkdir -p /server/tools/ #创建所在配置的文件
+- name: peizhi
+  copy: src=/server/tools/nfspeizhi.sh dest=/server/tools/nfspeizhi.sh
+- name: yunxingjiaoben 
+  script: /server/tools/nfspeizhi.sh #运行脚本
+- name: guanlimulu
+  shell: mkdir -p /data && chown -R nfsnobody.nfsnobody /data
+- name: qidong 
+  shell: /etc/init.d/rpcbind start && /etc/init.d/nfs start #启动
+- name: kaijiqidong
+  shell: chkconfig rpcbind on && chkconfig nfs on
+  #设置密码文件
+- hosts: 172.16.1.8
+  tasks:
+- name: yum
+  shell: yum install -y nfs-utils rpcbind # 客户端
+# - name: gui
+# shell: umount -f /mnt
+- name: guazai
+  shell: mount -t nfs 172.16.1.31:/data /mnt
+- hosts: 172.16.1.41
+  tasks:
+- name: yumh
+  shell: yum install -y nfs-utils rpcbind #客户端 
+# - name: guih
+# shell: umount -f /mnt 
+- name: guazaih
+  shell: mount -t nfs 172.16.1.31:/data /mnt
