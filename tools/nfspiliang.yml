@@ -1,5 +1,5 @@
 ---
-- hosts: 172.16.1.31 #服务端
+- hosts: 192.168.0.242 #服务端
   tasks:
 - name: yum 
   shell: yum install -y nfs-utils rpcbind #安装nfs
@@ -25,12 +25,12 @@
 # - name: gui
 # shell: umount -f /mnt
 - name: guazai
-  shell: mount -t nfs 172.16.1.31:/data /mnt
-- hosts: 172.16.1.41
+  shell: mount -t nfs 192.168.0.152:/data /mnt
+- hosts: 192.168.0.242
   tasks:
 - name: yumh
   shell: yum install -y nfs-utils rpcbind #客户端 
 # - name: guih
 # shell: umount -f /mnt 
 - name: guazaih
-  shell: mount -t nfs 172.16.1.31:/data /mnt
+  shell: mount -t nfs 192.168.0.152:/data /mnt
