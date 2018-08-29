@@ -1,0 +1,4 @@
+- name: Synchronization using rsync protocol (push)
+  synchronize:
+    src: /tmp/test
+    dest: rsync://root@192.168.0.67/tmp/test
