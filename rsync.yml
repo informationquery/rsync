@@ -1,7 +1,7 @@
 ---
 - hosts: all
   tasks:
-   - name: Synchronization
-     synchronize:
-       src: /tmp/test
-       dest: root@192.168.0.67/tmp
+- name: Synchronization using rsync protocol (push)
+  synchronize:
+    src: /root/tmp/gitpull/
+    dest: rsync://root@192.168.0.67/root/tmp/gitpull
