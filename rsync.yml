@@ -4,4 +4,4 @@
 - name: Synchronization using rsync protocol (push)
   synchronize:
     src: /tmp/gitpull/
-    dest: rsync:192.168.0.67/tmp/gitpull
+    dest: root@192.168.0.67:/tmp/gitpull
